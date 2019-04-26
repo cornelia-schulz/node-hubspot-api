@@ -25,10 +25,16 @@ const Tickets = (api = null) => {
     createTicket(properties) {
       // eslint-disable-next-line
       let mappedProperties = this.mapProperties(properties)
-
-      return api.post('crm-objects/v1/objects/tickets', [ ...mappedProperties ])
-        .then(response => responseHandler(response))
-        .catch(error => errorHandler(error))
+      console.log(mappedProperties)
+      return api.post('crm-objects/v1/objects/tickets', mappedProperties)
+        .then(response => {
+          console.log('listening: ', response)
+          responseHandler(response)
+        })
+        .catch(error => {
+          console.log('error: ', error)
+          errorHandler(error)
+        })
     }
   }
 }
