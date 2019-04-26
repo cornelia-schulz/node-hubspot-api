@@ -20,6 +20,10 @@ var _tickets = require('./endpoints/tickets');
 
 var _tickets2 = _interopRequireDefault(_tickets);
 
+var _associations = require('./endpoints/associations');
+
+var _associations2 = _interopRequireDefault(_associations);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var NodeHubSpotApi = function NodeHubSpotApi() {
@@ -36,7 +40,8 @@ var NodeHubSpotApi = function NodeHubSpotApi() {
     domains: null,
     files: null,
     deals: (0, _deals2.default)(api),
-    tickets: (0, _tickets2.default)(api)
+    tickets: (0, _tickets2.default)(api),
+    associations: (0, _associations2.default)(api)
   };
 };
 
