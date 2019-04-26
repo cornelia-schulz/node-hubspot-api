@@ -2,6 +2,7 @@ import Request from './helpers/request'
 import Contacts from './endpoints/contacts'
 import Blog from './endpoints/blog'
 import Deals from './endpoints/deals'
+import Tickets from './endpoints/tickets'
 
 const NodeHubSpotApi = (apiKey = null) => {
 
@@ -15,6 +16,7 @@ const NodeHubSpotApi = (apiKey = null) => {
     domains: null,
     files: null,
     deals: Deals(api),
+    tickets: Tickets(api)
   }
 }
 

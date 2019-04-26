@@ -21,6 +21,14 @@ const Tickets = (api = null) => {
       return api.get('crm-objects/v1/objects/tickets/paged', defaultParams)
         .then(response => responseHandler(response))
         .catch(error => errorHandler(error))
+    },
+    createTicket(properties) {
+      // eslint-disable-next-line
+      let mappedProperties = this.mapProperties(properties)
+
+      return api.post('crm-objects/v1/objects/tickets', [ ...mappedProperties ])
+        .then(response => responseHandler(response))
+        .catch(error => errorHandler(error))
     }
   }
 }
