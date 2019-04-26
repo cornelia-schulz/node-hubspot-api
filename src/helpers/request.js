@@ -54,6 +54,10 @@ class Request {
     return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, this.normalizeParams(params))
   }
 
+  post2(endPoint, params = {}) {
+    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params)
+  }
+
   // TODO
   put() {
 

@@ -25,8 +25,8 @@ const Tickets = (api = null) => {
     createTicket(properties) {
       // eslint-disable-next-line
       let mappedProperties = this.mapProperties(properties)
-      console.log(mappedProperties)
-      return api.post('crm-objects/v1/objects/tickets', mappedProperties)
+
+      return api.post2('crm-objects/v1/objects/tickets', mappedProperties)
         .then(response => {
           console.log('listening: ', response)
           responseHandler(response)

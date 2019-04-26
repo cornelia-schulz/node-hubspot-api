@@ -33,8 +33,8 @@ var Tickets = function Tickets() {
     createTicket: function createTicket(properties) {
       // eslint-disable-next-line
       var mappedProperties = this.mapProperties(properties);
-      console.log(mappedProperties);
-      return api.post('crm-objects/v1/objects/tickets', mappedProperties).then(function (response) {
+
+      return api.post2('crm-objects/v1/objects/tickets', mappedProperties).then(function (response) {
         console.log('listening: ', response);
         responseHandler(response);
       }).catch(function (error) {

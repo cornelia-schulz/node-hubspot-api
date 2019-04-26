@@ -27,8 +27,9 @@ describe('Create a ticket', () => {
   it('Should return new ticket entry', () => {
     return api.tickets.createTicket(ticketInfo)
       .then(response => {
-        console.log('response: ', response)
         expect(response.status).to.equal(200)
+        expect(response.data).to.be.a('object')
+        expect(response.data.properties).to.be.a('object')
       })
   })
 })
