@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function (response) {
-
   if (response.statusText === 'error') {
 
     // The request was made, but the server responded with a status code

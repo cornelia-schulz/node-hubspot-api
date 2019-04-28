@@ -28,11 +28,9 @@ const Tickets = (api = null) => {
 
       return api.post2('crm-objects/v1/objects/tickets', mappedProperties)
         .then(response => {
-          console.log('listening: ', response)
           responseHandler(response)
         })
         .catch(error => {
-          console.log('error: ', error)
           errorHandler(error)
         })
     }

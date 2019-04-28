@@ -22,7 +22,9 @@ const Contacts = (api = null) => {
       }
 
       return api.get('contacts/v1/lists/all/contacts/all', defaultParams)
-        .then(response => responseHandler(response))
+        .then(response => {
+          responseHandler(response)
+        })
         .catch(error => errorHandler(error))
     },
     getContactById(id, parameters = {}) {
