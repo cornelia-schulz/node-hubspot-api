@@ -35,7 +35,7 @@ var Tickets = function Tickets() {
       var mappedProperties = this.mapProperties(properties);
 
       return api.post2('crm-objects/v1/objects/tickets', mappedProperties).then(function (response) {
-        responseHandler(response);
+        return responseHandler(response);
       }).catch(function (error) {
         errorHandler(error);
       });

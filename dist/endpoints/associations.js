@@ -23,10 +23,8 @@ var Association = function Association() {
     // https://developers.hubspot.com/docs/methods/crm-associations/associate-objects
     createAssociation: function createAssociation(properties) {
       return api.put('crm-associations/v1/associations', properties).then(function (response) {
-        console.log('association response: ', response);
-        (0, _responseHandler2.default)(response);
+        return (0, _responseHandler2.default)(response);
       }).catch(function (error) {
-        console.log('error: ', error);
         (0, _errorHandler2.default)(error);
       });
     }

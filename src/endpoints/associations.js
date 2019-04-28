@@ -9,11 +9,9 @@ const Association = (api = null) => {
     createAssociation(properties) {
       return api.put('crm-associations/v1/associations', properties)
         .then(response => {
-          console.log('association response: ', response)
-          responseHandler(response)
+          return responseHandler(response)
         })
         .catch(error => {
-          console.log('error: ', error)
           errorHandler(error)
         })
     }
