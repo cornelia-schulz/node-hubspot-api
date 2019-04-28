@@ -3,8 +3,8 @@ module.exports = (error) => {
   if (error.response) {
     class HTTPError extends Error {
       constructor(code, message) {
-        super(message);
-        this.statusCode = code;
+        super(message)
+        this.statusCode = code
       }
     }
       // The request was made, but the server responded with a status code
