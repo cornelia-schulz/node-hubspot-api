@@ -80,12 +80,23 @@ var Request = function () {
 
       return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, this.normalizeParams(params));
     }
+  }, {
+    key: 'post2',
+    value: function post2(endPoint) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, params);
+    }
 
     // TODO
 
   }, {
     key: 'put',
-    value: function put() {}
+    value: function put(endPoint) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey, params);
+    }
 
     // TODO
 
