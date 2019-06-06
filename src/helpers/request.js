@@ -59,7 +59,7 @@ class Request {
   }
 
   post3(endPoint, params = {}) {
-    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params, {
+    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, data=params.data, files=params.files, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -68,7 +68,7 @@ class Request {
 
   // TODO
   put(endPoint, params = {}) {
-    return this.apiInstance.put(`${endPoint}?hapikey=${this.apiKey}`, data=params.data, files=params.files)
+    return this.apiInstance.put(`${endPoint}?hapikey=${this.apiKey}`)
   }
 
   // TODO
