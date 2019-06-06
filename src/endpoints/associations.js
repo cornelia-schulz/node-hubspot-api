@@ -8,8 +8,12 @@ const Association = (api = null) => {
     // https://developers.hubspot.com/docs/methods/crm-associations/associate-objects
     createAssociation(properties) {
       return api.put('crm-associations/v1/associations', properties)
-        .then(response => responseHandler(response))
-        .catch(error => errorHandler(error))
+        .then(response => {
+          return responseHandler(response)
+        })
+        .catch(error => {
+          errorHandler(error)
+        })
     }
   }
   

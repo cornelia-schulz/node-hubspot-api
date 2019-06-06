@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-      value: true
+  value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -19,95 +19,95 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var Contacts = function Contacts() {
-      var api = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var api = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
 
-      if (api === null) throw new Error('Request instance must be provided on constructor.');
+  if (api === null) throw new Error('Request instance must be provided on constructor.');
 
-      return {
-            mapProperties: function mapProperties(properties) {
+  return {
+    mapProperties: function mapProperties(properties) {
 
-                  return Object.keys(properties).map(function (property) {
-                        return {
-                              property: property,
-                              value: properties[property]
-                        };
-                  });
-            },
-            getAll: function getAll(params) {
+      return Object.keys(properties).map(function (property) {
+        return {
+          property: property,
+          value: properties[property]
+        };
+      });
+    },
+    getAll: function getAll(params) {
 
-                  var defaultParams = _extends({
-                        count: null,
-                        vidOffset: null
-                  }, params);
+      var defaultParams = _extends({
+        count: null,
+        vidOffset: null
+      }, params);
 
-                  return api.get('contacts/v1/lists/all/contacts/all', defaultParams).then(function (response) {
-                        return (0, _responseHandler2.default)(response);
-                  }).catch(function (error) {
-                        return (0, _errorHandler2.default)(error);
-                  });
-            },
-            getContactById: function getContactById(id) {
-                  var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-
-                  return api.get('contacts/v1/contact/vid/' + id + '/profile', parameters).then(function (response) {
-                        return (0, _responseHandler2.default)(response);
-                  }).catch(function (error) {
-                        return (0, _errorHandler2.default)(error);
-                  });
-            },
-            getContactByEmail: function getContactByEmail(email) {
-                  var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      return api.get('contacts/v1/lists/all/contacts/all', defaultParams).then(function (response) {
+        (0, _responseHandler2.default)(response);
+      }).catch(function (error) {
+        return (0, _errorHandler2.default)(error);
+      });
+    },
+    getContactById: function getContactById(id) {
+      var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
 
-                  return api.get('contacts/v1/contact/email/' + email + '/profile', parameters).then(function (response) {
-                        return (0, _responseHandler2.default)(response);
-                  }).catch(function (error) {
-                        return (0, _errorHandler2.default)(error);
-                  });
-            },
-            createContact: function createContact(properties) {
+      return api.get('contacts/v1/contact/vid/' + id + '/profile', parameters).then(function (response) {
+        return (0, _responseHandler2.default)(response);
+      }).catch(function (error) {
+        return (0, _errorHandler2.default)(error);
+      });
+    },
+    getContactByEmail: function getContactByEmail(email) {
+      var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-                  var mappedProperties = this.mapProperties(properties);
 
-                  return api.post('contacts/v1/contact', { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
-                        return (0, _responseHandler2.default)(response);
-                  }).catch(function (error) {
-                        return (0, _errorHandler2.default)(error);
-                  });
-            },
-            updateContactById: function updateContactById(properties, id) {
+      return api.get('contacts/v1/contact/email/' + email + '/profile', parameters).then(function (response) {
+        return (0, _responseHandler2.default)(response);
+      }).catch(function (error) {
+        return (0, _errorHandler2.default)(error);
+      });
+    },
+    createContact: function createContact(properties) {
 
-                  var mappedProperties = this.mapProperties(properties);
+      var mappedProperties = this.mapProperties(properties);
 
-                  return api.post('contacts/v1/contact/vid/' + id + '/profile', { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
-                        return (0, _responseHandler2.default)(response);
-                  }).catch(function (error) {
-                        return (0, _errorHandler2.default)(error);
-                  });
-            },
-            updateContactByEmail: function updateContactByEmail(properties, email) {
+      return api.post('contacts/v1/contact', { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
+        return (0, _responseHandler2.default)(response);
+      }).catch(function (error) {
+        return (0, _errorHandler2.default)(error);
+      });
+    },
+    updateContactById: function updateContactById(properties, id) {
 
-                  var mappedProperties = this.mapProperties(properties);
+      var mappedProperties = this.mapProperties(properties);
 
-                  return api.post('contacts/v1/contact/email/' + email + '/profile', { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
-                        return (0, _responseHandler2.default)(response);
-                  }).catch(function (error) {
-                        return (0, _errorHandler2.default)(error);
-                  });
-            },
-            createOrUpdateContact: function createOrUpdateContact(properties, email) {
+      return api.post('contacts/v1/contact/vid/' + id + '/profile', { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
+        return (0, _responseHandler2.default)(response);
+      }).catch(function (error) {
+        return (0, _errorHandler2.default)(error);
+      });
+    },
+    updateContactByEmail: function updateContactByEmail(properties, email) {
 
-                  var mappedProperties = this.mapProperties(properties);
+      var mappedProperties = this.mapProperties(properties);
 
-                  return api.post('contacts/v1/contact/createOrUpdate/email/' + email, { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
-                        return (0, _responseHandler2.default)(response);
-                  }).catch(function (error) {
-                        return (0, _errorHandler2.default)(error);
-                  });
-            }
-      };
+      return api.post('contacts/v1/contact/email/' + email + '/profile', { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
+        return (0, _responseHandler2.default)(response);
+      }).catch(function (error) {
+        return (0, _errorHandler2.default)(error);
+      });
+    },
+    createOrUpdateContact: function createOrUpdateContact(properties, email) {
+
+      var mappedProperties = this.mapProperties(properties);
+
+      return api.post('contacts/v1/contact/createOrUpdate/email/' + email, { properties: [].concat(_toConsumableArray(mappedProperties)) }).then(function (response) {
+        return (0, _responseHandler2.default)(response);
+      }).catch(function (error) {
+        return (0, _errorHandler2.default)(error);
+      });
+    }
+  };
 };
 
 exports.default = Contacts;

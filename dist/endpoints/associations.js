@@ -25,7 +25,7 @@ var Association = function Association() {
       return api.put('crm-associations/v1/associations', properties).then(function (response) {
         return (0, _responseHandler2.default)(response);
       }).catch(function (error) {
-        return (0, _errorHandler2.default)(error);
+        (0, _errorHandler2.default)(error);
       });
     }
   };

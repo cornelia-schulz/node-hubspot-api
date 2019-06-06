@@ -92,7 +92,11 @@ var Request = function () {
 
   }, {
     key: 'put',
-    value: function put() {}
+    value: function put(endPoint) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey, params);
+    }
 
     // TODO
 
