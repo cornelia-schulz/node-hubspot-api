@@ -106,7 +106,7 @@ var Request = function () {
     value: function put(endPoint) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey, params);
+      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey, data = params.data, files = params.files);
     }
 
     // TODO

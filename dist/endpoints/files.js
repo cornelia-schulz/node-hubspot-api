@@ -39,7 +39,7 @@ var Files = function Files() {
         },
         uploadFile: function uploadFile(properties) {
             // var mappedProperties = this.mapProperties(properties)
-            return api.post3('filemanager/api/v2/files', data = properties.data, files = properties.files).then(function (response) {
+            return api.post3('filemanager/api/v2/files', properties).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
                 console.log('error: ', error);
