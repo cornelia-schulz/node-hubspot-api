@@ -58,6 +58,14 @@ class Request {
     return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params)
   }
 
+  post3(endPoint, params = {}) {
+    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+  }
+
   // TODO
   put(endPoint, params = {}) {
     return this.apiInstance.put(`${endPoint}?hapikey=${this.apiKey}`, params)
