@@ -98,8 +98,8 @@ var Request = function () {
       var formData = new _formData2.default();
       formData.append('files', params.files);
       formData.append('folder_paths', '/attachments');
-      var config = { files: params.files, headers: { 'Content-Type': 'multipart/form-data', 'accept-encoding': 'gzip, deflate' } };
-      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, params.data, config);
+      var config = { files: params.files, headers: { 'Content-Type': 'multipart/form-data', 'Accept': '*/*', 'accept-encoding': 'gzip, deflate' } };
+      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, config);
     }
 
     // TODO
