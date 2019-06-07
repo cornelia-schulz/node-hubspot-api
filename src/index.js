@@ -4,6 +4,7 @@ import Blog from './endpoints/blog'
 import Deals from './endpoints/deals'
 import Tickets from './endpoints/tickets'
 import Association from './endpoints/associations'
+import Files from './endpoints/files'
 
 const NodeHubSpotApi = (apiKey = null) => {
 
@@ -18,7 +19,8 @@ const NodeHubSpotApi = (apiKey = null) => {
     files: null,
     deals: Deals(api),
     tickets: Tickets(api),
-    associations: Association(api)
+    associations: Association(api),
+    files: Files(api)
   }
 }
 

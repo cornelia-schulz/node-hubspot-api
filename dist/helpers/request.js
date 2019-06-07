@@ -92,7 +92,7 @@ var Request = function () {
     value: function post3(endPoint) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, params, {
+      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, data = arguments[1].data, files = arguments[1].files, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -106,7 +106,7 @@ var Request = function () {
     value: function put(endPoint) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey, data = params.data, files = params.files);
+      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey);
     }
 
     // TODO
