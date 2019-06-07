@@ -61,7 +61,7 @@ class Request {
   post3(endPoint, params) {
     console.log('params: ', params)
     const config = { headers: { 'Content-Type': 'multipart/form-data' }, files: params.files }
-    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params, config)
+    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params.data, config)
   }
 
   // TODO
