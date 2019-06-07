@@ -1,5 +1,5 @@
-var errorHandler = require('../helpers/errorHandler.js');
-var responseHandler = require('../helpers/responseHandler.js');
+import errorHandler from '../helpers/errorHandler'
+import responseHandler from '../helpers/responseHandler'
 
 /* files = {'files': open('/path/on/your/local-computer/report.xls', 'rb')}
 r = requests.post(
@@ -17,15 +17,14 @@ const Files = (api = null) => {
     return {
 
       uploadFile(data, files) {
-        return api.post2('filemanager/api/v2/files', data, files)
-            .then(function(response) {
-            console.log(response);
-        }).catch(function(error) {
-            console.log('error: ', error);
-            errorHandler(error);
+        return api.post3('filemanager/api/v2/files', data, files)
+        .then(response => responseHandler(response))
+        .catch(error => {
+            console.log(error)
+            errorHandler(error)
         })
     }
-  };
-};
+  }
+}
 
-module.exports = Files;
+export default Files

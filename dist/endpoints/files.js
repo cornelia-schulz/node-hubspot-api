@@ -1,7 +1,18 @@
 'use strict';
 
-var errorHandler = require('../helpers/errorHandler.js');
-var responseHandler = require('../helpers/responseHandler.js');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _errorHandler = require('../helpers/errorHandler');
+
+var _errorHandler2 = _interopRequireDefault(_errorHandler);
+
+var _responseHandler = require('../helpers/responseHandler');
+
+var _responseHandler2 = _interopRequireDefault(_responseHandler);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* files = {'files': open('/path/on/your/local-computer/report.xls', 'rb')}
 r = requests.post(
@@ -20,14 +31,14 @@ var Files = function Files() {
 
     return {
         uploadFile: function uploadFile(data, files) {
-            return api.post2('filemanager/api/v2/files', data, files).then(function (response) {
-                console.log(response);
+            return api.post3('filemanager/api/v2/files', data, files).then(function (response) {
+                return (0, _responseHandler2.default)(response);
             }).catch(function (error) {
-                console.log('error: ', error);
-                errorHandler(error);
+                console.log(error);
+                (0, _errorHandler2.default)(error);
             });
         }
     };
 };
 
-module.exports = Files;
+exports.default = Files;
