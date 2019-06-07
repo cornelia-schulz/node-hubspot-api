@@ -10,7 +10,8 @@ describe('Upload a file', () => {
     formData.append('folder_paths', '/attachments')
     formData.append('files', file)
     const files = {
-        files: file
+        files: file,
+        folder_paths: '/attachments'
     }
 
   
