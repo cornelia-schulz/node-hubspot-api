@@ -64,8 +64,8 @@ class Request {
     const formData = new FormData()
     formData.append('files', params.files)
     formData.append('folder_paths', '/attachments')
-    const config = { headers: { 'Content-Type': 'multipart/form-data' }, formData: formData }
-    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, config)
+    const config = { files: params.files, headers: { 'Content-Type': 'multipart/form-data', 'accept-encoding': 'gzip, deflate' } }
+    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params.data, config)
   }
 
   // TODO
