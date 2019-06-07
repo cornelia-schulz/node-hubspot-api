@@ -62,8 +62,8 @@ class Request {
     console.log('params: ', params)
     return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+       "Content-Type": "multipart/form-data"
+       }
     })
   }
 

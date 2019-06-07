@@ -17,6 +17,7 @@ const Files = (api = null) => {
     return {
 
       uploadFile(properties) {
+        
         return api.post3('filemanager/api/v2/files', properties)
         .then(response => responseHandler(response))
         .catch(error => {

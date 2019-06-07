@@ -9,9 +9,13 @@ describe('Upload a file', () => {
     const formData = new FormData()
     formData.append('folder_paths', '/attachments')
     formData.append('files', file)
+    const files = {
+        files: file
+    }
+
   
     it('Should upload file', () => {
-      return api.files.uploadFile(formData)
+      return api.files.uploadFile(files)
         .then(response => {
           expect(response.status).to.equal(200)
           expect(response.data).to.be.a('object')

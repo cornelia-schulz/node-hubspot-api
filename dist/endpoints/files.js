@@ -31,6 +31,7 @@ var Files = function Files() {
 
     return {
         uploadFile: function uploadFile(properties) {
+
             return api.post3('filemanager/api/v2/files', properties).then(function (response) {
                 return (0, _responseHandler2.default)(response);
             }).catch(function (error) {
