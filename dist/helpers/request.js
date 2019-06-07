@@ -12,6 +12,10 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _formData = require('form-data');
+
+var _formData2 = _interopRequireDefault(_formData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -91,8 +95,11 @@ var Request = function () {
     key: 'post3',
     value: function post3(endPoint, params) {
       console.log('params: ', params);
-      var config = { headers: { 'Content-Type': 'multipart/form-data' }, files: params.files };
-      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, params.data, config);
+      var formData = new _formData2.default();
+      formData.append('files', params.files);
+      formData.append('folder_paths', '/attachments');
+      var config = { headers: { 'Content-Type': 'multipart/form-data' }, formData: formData };
+      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, config);
     }
 
     // TODO
