@@ -30,11 +30,11 @@ var Files = function Files() {
     if (api === null) throw new Error('Request instance must be provided on constructor.');
 
     return {
-        uploadFile: function uploadFile(data, files) {
-            return api.post3('filemanager/api/v2/files', data, files).then(function (response) {
+        uploadFile: function uploadFile(properties) {
+            return api.post3('filemanager/api/v2/files', properties).then(function (response) {
                 return (0, _responseHandler2.default)(response);
             }).catch(function (error) {
-                console.log(error);
+                console.log('logging error', error.message, error);
                 (0, _errorHandler2.default)(error);
             });
         }

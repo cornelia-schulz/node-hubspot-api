@@ -16,11 +16,11 @@ const Files = (api = null) => {
   
     return {
 
-      uploadFile(data, files) {
-        return api.post3('filemanager/api/v2/files', data, files)
+      uploadFile(properties) {
+        return api.post3('filemanager/api/v2/files', properties)
         .then(response => responseHandler(response))
         .catch(error => {
-            console.log(error)
+            console.log('logging error', error.message, error)
             errorHandler(error)
         })
     }
