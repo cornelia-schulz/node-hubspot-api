@@ -7,8 +7,8 @@ describe('Association', () => {
   describe('Create association', () => {
     let linkInfo = {
       // contact to ticket definitionId = 15, ticket to contact definitionId = 16, use VID for contact
-      "fromObjectId": 24878503,
-      "toObjectId": 9153674,
+      "fromObjectId": 28093037,
+      "toObjectId": 9278824,
       "category": "HUBSPOT_DEFINED",
       "definitionId": 16
     }
