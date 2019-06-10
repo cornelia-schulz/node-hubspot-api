@@ -21,7 +21,7 @@ const Files = (api = null) => {
         return api.post3('filemanager/api/v2/files', properties)
         .then(response => responseHandler(response))
         .catch(error => {
-            console.log('logging error', error.message, error)
+            // console.log('logging error', error.message, error)
             errorHandler(error)
         })
     }

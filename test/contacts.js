@@ -8,8 +8,11 @@ describe('Contacts', () => {
   describe('Gets contacts', () => {
 
     it('Should return all contacts', () => {
-
-      return api.contacts.getAll()
+      let params = {
+        count: 1,
+        vidOffset: null
+      }
+      return api.contacts.getAll(params)
         .then(response => {
           expect(response.status).to.equal(200)
           expect(response.data).to.be.a('object')
@@ -17,7 +20,7 @@ describe('Contacts', () => {
         })
     })
 
-    // Get a existing contact for test
+    // Get an existing contact for test
     let testContact = null
 
     before(() => {

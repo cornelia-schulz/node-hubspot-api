@@ -13,7 +13,6 @@ describe('Association', () => {
       "definitionId": 16
     }
     it('Should create a CRM association', () => {
-      console.log('running associations')
       return api.associations.createAssociation(linkInfo)
         .then(response => {
           expect(response.status).to.equal(204)

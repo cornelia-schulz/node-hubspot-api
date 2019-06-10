@@ -11,7 +11,6 @@ describe('Upload a file', () => {
             folder_paths: '/attachments'
         }
     }
-
   
     it('Should upload file', () => {
       return api.files.uploadFile(files)

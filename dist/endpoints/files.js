@@ -35,7 +35,7 @@ var Files = function Files() {
             return api.post3('filemanager/api/v2/files', properties).then(function (response) {
                 return (0, _responseHandler2.default)(response);
             }).catch(function (error) {
-                console.log('logging error', error.message, error);
+                // console.log('logging error', error.message, error)
                 (0, _errorHandler2.default)(error);
             });
         }
