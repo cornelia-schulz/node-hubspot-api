@@ -33,7 +33,8 @@ var Request = function () {
     this.apiKey = apiKey;
     this.apiInstance = _axios2.default.create({
       baseURL: '' + API_ENDPOINT,
-      timeout: 600000 });
+      timeout: 600000 // 10 minutes
+    });
   }
 
   _createClass(Request, [{
@@ -99,7 +100,7 @@ var Request = function () {
       formData.append('files', params.files);
       formData.append('folder_paths', '/attachments');
       var config = { files: params.files, headers: { 'Content-Type': 'multipart/form-data', 'Accept': '*/*', 'accept-encoding': 'gzip, deflate' } };
-      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, config);
+      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, params.data, config);
     }
 
     // TODO
@@ -109,7 +110,7 @@ var Request = function () {
     value: function put(endPoint) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey);
+      return this.apiInstance.put(endPoint + '?hapikey=' + this.apiKey, params);
     }
 
     // TODO

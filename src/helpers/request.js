@@ -70,7 +70,7 @@ class Request {
 
   // TODO
   put(endPoint, params = {}) {
-    return this.apiInstance.put(`${endPoint}?hapikey=${this.apiKey}`)
+    return this.apiInstance.put(`${endPoint}?hapikey=${this.apiKey}`, params)
   }
 
   // TODO
