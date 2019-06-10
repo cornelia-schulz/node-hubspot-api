@@ -35,14 +35,13 @@ var Contacts = function Contacts() {
       });
     },
     getAll: function getAll(params) {
-
       var defaultParams = _extends({
         count: null,
         vidOffset: null
       }, params);
 
       return api.get('contacts/v1/lists/all/contacts/all', defaultParams).then(function (response) {
-        (0, _responseHandler2.default)(response);
+        return (0, _responseHandler2.default)(response);
       }).catch(function (error) {
         return (0, _errorHandler2.default)(error);
       });

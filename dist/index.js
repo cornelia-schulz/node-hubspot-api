@@ -24,7 +24,13 @@ var _associations = require('./endpoints/associations');
 
 var _associations2 = _interopRequireDefault(_associations);
 
+var _files = require('./endpoints/files');
+
+var _files2 = _interopRequireDefault(_files);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var NodeHubSpotApi = function NodeHubSpotApi() {
   var apiKey = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
@@ -32,7 +38,7 @@ var NodeHubSpotApi = function NodeHubSpotApi() {
 
   var api = new _request2.default(apiKey);
 
-  return {
+  return _defineProperty({
     calendar: null,
     companies: null,
     contacts: (0, _contacts2.default)(api),
@@ -42,7 +48,7 @@ var NodeHubSpotApi = function NodeHubSpotApi() {
     deals: (0, _deals2.default)(api),
     tickets: (0, _tickets2.default)(api),
     associations: (0, _associations2.default)(api)
-  };
+  }, 'files', (0, _files2.default)(api));
 };
 
 module.exports = NodeHubSpotApi;

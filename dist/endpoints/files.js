@@ -1,17 +1,18 @@
 'use strict';
 
-var _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-                target[key] = source[key];
-            }
-        }
-    }return target;
-};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var errorHandler = require('../helpers/errorHandler.js');
-var responseHandler = require('../helpers/responseHandler.js');
+var _errorHandler = require('../helpers/errorHandler');
+
+var _errorHandler2 = _interopRequireDefault(_errorHandler);
+
+var _responseHandler = require('../helpers/responseHandler');
+
+var _responseHandler2 = _interopRequireDefault(_responseHandler);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* files = {'files': open('/path/on/your/local-computer/report.xls', 'rb')}
 r = requests.post(
@@ -25,28 +26,20 @@ r = requests.post(
 var Files = function Files() {
     var api = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
+
     if (api === null) throw new Error('Request instance must be provided on constructor.');
 
     return {
-
-        mapProperties: function mapProperties(properties) {
-            return Object.keys(properties).map(function (property) {
-                return {
-                    name: property,
-                    value: properties[property]
-                };
-            });
-        },
         uploadFile: function uploadFile(properties) {
-            // var mappedProperties = this.mapProperties(properties)
-            return api.post2('filemanager/api/v2/files', data = prooerties.data).then(function (response) {
-                console.log(response);
+
+            return api.post3('filemanager/api/v2/files', properties).then(function (response) {
+                return (0, _responseHandler2.default)(response);
             }).catch(function (error) {
-                console.log('error: ', error);
-                errorHandler(error);
+                // console.log('logging error', error.message, error)
+                (0, _errorHandler2.default)(error);
             });
         }
     };
 };
 
-module.exports = Files;
+exports.default = Files;

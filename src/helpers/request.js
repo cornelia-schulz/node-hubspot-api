@@ -1,4 +1,5 @@
 import axios from 'axios'
+import FormData from 'form-data'
 
 const API_ENDPOINT = 'https://api.hubapi.com'
 
@@ -56,6 +57,15 @@ class Request {
 
   post2(endPoint, params = {}) {
     return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params)
+  }
+
+  post3(endPoint, params) {
+    console.log('params: ', params)
+    const formData = new FormData()
+    formData.append('files', params.files)
+    formData.append('folder_paths', '/attachments')
+    const config = { files: params.files, headers: { 'Content-Type': 'multipart/form-data', 'Accept': '*/*', 'accept-encoding': 'gzip, deflate' } }
+    return this.apiInstance.post(`${endPoint}?hapikey=${this.apiKey}`, params.data, config)
   }
 
   // TODO

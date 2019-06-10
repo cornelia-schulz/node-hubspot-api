@@ -12,6 +12,10 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _formData = require('form-data');
+
+var _formData2 = _interopRequireDefault(_formData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29,7 +33,8 @@ var Request = function () {
     this.apiKey = apiKey;
     this.apiInstance = _axios2.default.create({
       baseURL: '' + API_ENDPOINT,
-      timeout: 600000 });
+      timeout: 600000 // 10 minutes
+    });
   }
 
   _createClass(Request, [{
@@ -86,6 +91,16 @@ var Request = function () {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, params);
+    }
+  }, {
+    key: 'post3',
+    value: function post3(endPoint, params) {
+      console.log('params: ', params);
+      var formData = new _formData2.default();
+      formData.append('files', params.files);
+      formData.append('folder_paths', '/attachments');
+      var config = { files: params.files, headers: { 'Content-Type': 'multipart/form-data', 'Accept': '*/*', 'accept-encoding': 'gzip, deflate' } };
+      return this.apiInstance.post(endPoint + '?hapikey=' + this.apiKey, params.data, config);
     }
 
     // TODO
